@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Izistok — Gestion des Ventes, Stocks et Comptabilité en un seul endroit</title>
+  <meta name="description" content="Izistok est la plateforme SaaS tout-en-un conçue pour simplifier la gestion de vos ventes, le suivi de vos stocks en temps réel et votre comptabilité d'entreprise.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Background Decorative Glows -->
+  <div class="glow-container">
+    <div class="glow-blob blob-cyan"></div>
+    <div class="glow-blob blob-purple"></div>
+    <div class="glow-blob blob-blue"></div>
+  </div>
+
+  <!-- SVG Noise Filter Definition -->
+  <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.04 0" />
+    </filter>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-dot"></span>
+        izistok
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Fonctionnalités</a></li>
+        <li><a href="#simulator" class="nav-link">Simulateur</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="https://izistok.glide.page/" target="_blank" class="btn btn-nav-cta">Essayer gratuitement</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot pulse"></span>
+        <span class="badge-text">Version 2.0 en ligne</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Pilotez vos <span class="gradient-text">ventes</span>, contrôlez vos <span class="gradient-text">stocks</span> et automatisez votre <span class="gradient-text">compta</span>.
+      </h1>
+      
+      <p class="hero-subtitle">
+        La plateforme tout-en-un ultra-fluide pour les commerçants et PME modernes. Visualisez vos performances en temps réel sans effort.
+      </p>
+      
+      <div class="hero-ctas">
+        <a href="https://izistok.glide.page/" target="_blank" class="btn btn-primary magnetic-btn">Démarrer maintenant</a>
+        <a href="#simulator" class="btn btn-secondary magnetic-btn">Tester le simulateur</a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">[15k+]</span>
+          <span class="stat-label">Transactions/j</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">[99.98%]</span>
+          <span class="stat-label">Uptime garanti</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">[-40%]</span>
+          <span class="stat-label">Temps de gestion</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Mockup Window -->
+    <div class="hero-mockup-wrapper">
+      <div class="mockup-window">
+        <div class="mockup-header">
+          <div class="mockup-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="mockup-title">dashboard.izistok.io</div>
+          <div class="mockup-badge">Live Preview</div>
+        </div>
+        
+        <div class="mockup-body">
+          <!-- Sidebar -->
+          <div class="mockup-sidebar">
+            <div class="sidebar-logo">izistok</div>
+            <div class="sidebar-menu">
+              <div class="menu-item active"><i data-lucide="layout-dashboard"></i> Tableau de bord</div>
+              <div class="menu-item"><i data-lucide="trending-up"></i> Ventes</div>
+              <div class="menu-item"><i data-lucide="package"></i> Stock</div>
+              <div class="menu-item"><i data-lucide="file-text"></i> Factures</div>
+              <div class="menu-item"><i data-lucide="pie-chart"></i> Comptabilité</div>
+              <div class="menu-item"><i data-lucide="settings"></i> Réglages</div>
+            </div>
+          </div>
+          
+          <!-- Content Area -->
+          <div class="mockup-content">
+            <div class="content-header">
+              <h3>Vue d'ensemble</h3>
+              <div class="timeframe-badge">7 derniers jours</div>
+            </div>
+            
+            <div class="mockup-cards-grid">
+              <div class="mini-card card-glow-cyan">
+                <div class="mini-card-header">
+                  <span>Chiffre d'Affaires</span>
+                  <i data-lucide="dollar-sign" class="text-cyan"></i>
+                </div>
+                <div class="mini-card-val">24 580 FCFA</div>
+                <div class="mini-card-trend trend-up">
+                  <i data-lucide="arrow-up-right"></i> +12.3%
+                </div>
+              </div>
+              
+              <div class="mini-card card-glow-purple">
+                <div class="mini-card-header">
+                  <span>Commandes</span>
+                  <i data-lucide="shopping-cart" class="text-purple"></i>
+                </div>
+                <div class="mini-card-val">342</div>
+                <div class="mini-card-trend trend-up">
+                  <i data-lucide="arrow-up-right"></i> +8.5%
+                </div>
+              </div>
+
+              <div class="mini-card card-glow-blue">
+                <div class="mini-card-header">
+                  <span>Alerte de Stock</span>
+                  <i data-lucide="alert-triangle" class="text-amber"></i>
+                </div>
+                <div class="mini-card-val">4 articles</div>
+                <div class="mini-card-trend trend-warning">
+                  <span class="warning-dot"></span> Action requise
+                </div>
+              </div>
+            </div>
+
+            <!-- Chart Simulation Container -->
+            <div class="mockup-chart-container">
+              <div class="chart-header">
+                <span>Courbe des Ventes Quotidiennes</span>
+                <span class="chart-value-indicator">Moyenne: 3 510 FCFA/j</span>
+              </div>
+              <div class="chart-svg-wrapper">
+                <svg viewBox="0 0 500 150" class="mockup-svg-chart">
+                  <!-- Grid Lines -->
+                  <line x1="0" y1="30" x2="500" y2="30" stroke="#1e293b" stroke-dasharray="4,4" />
+                  <line x1="0" y1="75" x2="500" y2="75" stroke="#1e293b" stroke-dasharray="4,4" />
+                  <line x1="0" y1="120" x2="500" y2="120" stroke="#1e293b" stroke-dasharray="4,4" />
+                  <!-- Gradient fill under path -->
+                  <defs>
+                    <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#789436" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="#789436" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60 L 500 150 L 0 150 Z" fill="url(#chartGlow)" />
+                  <!-- Line path -->
+                  <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60" fill="none" stroke="url(#cyan-blue-grad)" stroke-width="3" class="chart-line-animation" />
+                  <!-- Data points -->
+                  <circle cx="150" cy="90" r="4" fill="#789436" />
+                  <circle cx="300" cy="40" r="4" fill="#789436" />
+                  <circle cx="450" cy="70" r="4" fill="#789436" />
+                  <!-- Gradients definitions -->
+                  <linearGradient id="cyan-blue-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#789436" />
+                    <stop offset="100%" stop-color="#789436" />
+                  </linearGradient>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-tagline">[ Nos Piliers ]</h2>
+        <h3 class="section-title">Une architecture triple pour une gestion sans faille</h3>
+        <p class="section-desc">
+          Izistok intègre les trois départements vitaux de votre entreprise en une seule boucle synchronisée. Fini la double saisie et les décalages.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1: Ventes -->
+        <div class="feature-card card-ventes">
+          <div class="card-glow"></div>
+          <div class="feature-icon-wrapper icon-cyan">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <h4 class="feature-card-title">Ventes & Facturation Rapide</h4>
+          <p class="feature-card-desc">
+            Enregistrez vos ventes directement depuis votre smartphone, tablette ou PC. Éditez des factures professionnelles, envoyez-les instantanément par WhatsApp ou e-mail, et suivez vos ventes à crédit en un clin d'œil.
+          </p>
+          <ul class="feature-card-list">
+            <li><i data-lucide="check" class="list-check"></i> Reçus au format ticket pour imprimantes thermiques</li>
+            <li><i data-lucide="check" class="list-check"></i> Partage direct des factures sur WhatsApp et SMS</li>
+            <li><i data-lucide="check" class="list-check"></i> Suivi des clients débiteurs et rappels automatiques</li>
+          </ul>
+        </div>
+
+        <!-- Feature 2: Stock -->
+        <div class="feature-card card-stock">
+          <div class="card-glow"></div>
+          <div class="feature-icon-wrapper icon-purple">
+            <i data-lucide="package"></i>
+          </div>
+          <h4 class="feature-card-title">Suivi de Stock en Temps Réel</h4>
+          <p class="feature-card-desc">
+            Fini les écarts de stock et les ruptures imprévues. Suivez les entrées et sorties de vos articles dans une ou plusieurs boutiques en temps réel. Soyez alerté dès qu'un produit atteint son seuil d'alerte.
+          </p>
+          <ul class="feature-card-list">
+            <li><i data-lucide="check" class="list-check"></i> Alertes intelligentes de stock bas par SMS & WhatsApp</li>
+            <li><i data-lucide="check" class="list-check"></i> Gestion multi-boutique et transferts de stocks sécurisés</li>
+            <li><i data-lucide="check" class="list-check"></i> Scan rapide des articles via la caméra de votre téléphone</li>
+          </ul>
+        </div>
+
+        <!-- Feature 3: Comptabilité -->
+        <div class="feature-card card-compta">
+          <div class="card-glow"></div>
+          <div class="feature-icon-wrapper icon-blue">
+            <i data-lucide="pie-chart"></i>
+          </div>
+          <h4 class="feature-card-title">Bénéfices & Caisse Journalière</h4>
+          <p class="feature-card-desc">
+            Visualisez vos bénéfices nets, vos dépenses et l'état de votre caisse en temps réel. Izistok calcule automatiquement vos marges et génère des rapports simples que vous pouvez exporter pour votre comptable.
+          </p>
+          <ul class="feature-card-list">
+            <li><i data-lucide="check" class="list-check"></i> Calcul automatique du bénéfice net (chiffre d'affaires - achats)</li>
+            <li><i data-lucide="check" class="list-check"></i> Clôture de caisse sécurisée avec historique par vendeur</li>
+            <li><i data-lucide="check" class="list-check"></i> Exportation des rapports de vente en format Excel et PDF</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR SECTION -->
+  <section class="simulator-section" id="simulator">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-tagline">[ Faites Le Calcul ]</h2>
+        <h3 class="section-title">Visualisez l'impact en temps réel</h3>
+        <p class="section-desc">
+          Entrez vos métriques estimées et observez comment Izistok synchronise vos stocks, calcule votre marge nette et comptabilise vos impôts instantanément.
+        </p>
+      </div>
+
+      <div class="simulator-wrapper">
+        <!-- Control Panel -->
+        <div class="simulator-panel">
+          <h4 class="panel-title">Paramètres de simulation</h4>
+          
+          <div class="input-group">
+            <div class="input-header">
+              <label for="sim-price">Prix de vente unitaire</label>
+              <span class="value-display" id="val-price">49 FCFA</span>
+            </div>
+            <input type="range" id="sim-price" min="5" max="500" value="49" class="slider">
+          </div>
+
+          <div class="input-group">
+            <div class="input-header">
+              <label for="sim-cost">Coût d'achat (Stock)</label>
+              <span class="value-display" id="val-cost">15 FCFA</span>
+            </div>
+            <input type="range" id="sim-cost" min="1" max="250" value="15" class="slider">
+          </div>
+
+          <div class="input-group">
+            <div class="input-header">
+              <label for="sim-volume">Ventes mensuelles prévues</label>
+              <span class="value-display" id="val-volume">250 unités</span>
+            </div>
+            <input type="range" id="sim-volume" min="10" max="2000" value="250" class="slider">
+          </div>
+
+          <div class="simulator-disclaimer">
+            <i data-lucide="info" class="icon-info"></i>
+            <span>Simulation basée sur un taux de taxe standard de 20% (TVA).</span>
+          </div>
+        </div>
+
+        <!-- Result Dashboard -->
+        <div class="simulator-dashboard">
+          <div class="dashboard-grid">
+            
+            <!-- Metric 1 -->
+            <div class="metric-card">
+              <span class="metric-label">Chiffre d'Affaires</span>
+              <span class="metric-value text-cyan" id="metric-ca">12,250 FCFA</span>
+              <div class="metric-sub">Revenu brut mensuel</div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="metric-card">
+              <span class="metric-label">Marge Net Estimée</span>
+              <span class="metric-value text-purple" id="metric-margin">6,800 FCFA</span>
+              <div class="metric-sub" id="metric-margin-percent">55.5% de marge brute</div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="metric-card">
+              <span class="metric-label">Stock Initial Requis</span>
+              <span class="metric-value text-blue" id="metric-stock">3,750 FCFA</span>
+              <div class="metric-sub">Valeur d'inventaire requise</div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="metric-card">
+              <span class="metric-label">Comptabilisation TVA</span>
+              <span class="metric-value text-white" id="metric-tax">2,041 FCFA</span>
+              <div class="metric-sub">À déclarer au fisc</div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic SVG Chart for Visualizing Split -->
+          <div class="split-visualization">
+            <span class="vis-title">Répartition Financière (FCFA)</span>
+            <div class="vis-bars">
+              <div class="vis-bar-wrapper">
+                <span class="bar-label">Coût Stock (<span id="vis-cost-val">3750</span> FCFA)</span>
+                <div class="progress-bar-bg">
+                  <div class="progress-fill fill-stock" id="bar-stock" style="width: 30%;"></div>
+                </div>
+              </div>
+              <div class="vis-bar-wrapper">
+                <span class="bar-label">TVA (<span id="vis-tax-val">2041</span> FCFA)</span>
+                <div class="progress-bar-bg">
+                  <div class="progress-fill fill-tax" id="bar-tax" style="width: 17%;"></div>
+                </div>
+              </div>
+              <div class="vis-bar-wrapper">
+                <span class="bar-label">Bénéfice Net (<span id="vis-net-val">6459</span> FCFA)</span>
+                <div class="progress-bar-bg">
+                  <div class="progress-fill fill-benefit" id="bar-net" style="width: 53%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FAQS SECTION -->
+  <section class="faqs-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-tagline">[ FAQ ]</h2>
+        <h3 class="section-title">Des questions fréquemment posées</h3>
+      </div>
+
+      <div class="faq-accordion-container">
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Comment Izistok m'aide-t-il si je perds ma connexion Internet ?</span>
+            <i data-lucide="plus" class="faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Izistok intègre un mode hors-ligne intelligent. Vous pouvez continuer à enregistrer vos ventes et consulter votre stock même sans réseau. Dès que la connexion est rétablie, vos données se synchronisent automatiquement et de manière sécurisée.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Puis-je gérer plusieurs boutiques ou points de vente avec un seul compte ?</span>
+            <i data-lucide="plus" class="faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Oui, absolument. Izistok prend en charge la gestion multi-boutique. Vous pouvez suivre le stock et les ventes de chaque point de vente individuellement tout en ayant un tableau de bord consolidé pour piloter l'ensemble de votre activité.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Comment fonctionne le suivi des ventes à crédit (clients débiteurs) ?</span>
+            <i data-lucide="plus" class="faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Pour chaque client, vous pouvez autoriser un paiement partiel ou différé lors de l'enregistrement de la vente. Izistok crée automatiquement une fiche de crédit pour le client, affiche le reste à payer, et vous permet d'envoyer un rappel de paiement professionnel avec un récapitulatif détaillé par WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Izistok est-il compatible avec les imprimantes thermiques de reçus ?</span>
+            <i data-lucide="plus" class="faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Oui. Izistok est optimisé pour les imprimantes thermiques Bluetooth et USB de 58mm et 80mm. Vous pouvez imprimer des reçus de vente professionnels pour vos clients directement depuis l'application mobile ou votre tablette.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Mes données sont-elles sécurisées sur la plateforme ?</span>
+            <i data-lucide="plus" class="faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>La sécurité est notre priorité absolue. Vos données sont sauvegardées en temps réel sur des serveurs cloud ultra-sécurisés avec un chiffrement de bout en bout (SSL). Même en cas de perte de votre téléphone, vos données restent à l'abri et récupérables immédiatement en vous reconnectant.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h2 class="section-tagline">[ Me Contacter ]</h2>
+          <h3 class="contact-title">Prêt à transformer votre gestion ?</h3>
+          <p class="contact-desc">
+            Contactez-nous directement par e-mail ou par téléphone pour toute question, support ou pour planifier une démonstration personnalisée de la plateforme.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail-item">
+              <i data-lucide="mail" class="text-cyan"></i>
+              <a href="mailto:docteurdjoco@gmail.com" class="contact-link">docteurdjoco@gmail.com</a>
+            </div>
+            <div class="detail-item">
+              <i data-lucide="phone" class="text-purple"></i>
+              <a href="tel:+22891475677" class="contact-link">+228 91475677</a>
+            </div>
+            <div class="detail-item">
+              <i data-lucide="map-pin" class="text-blue"></i>
+              <span>Paris, France</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo-section">
+          <a href="#" class="footer-logo">
+            <span class="logo-dot"></span>
+            izistok
+          </a>
+          <p class="footer-moto">Le pilotage d'entreprise réinventé.</p>
+        </div>
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <span class="col-title">Produit</span>
+            <a href="#features">Fonctionnalités</a>
+            <a href="#simulator">Simulateur</a>
+          </div>
+          <div class="footer-col">
+            <span class="col-title">Compagnie</span>
+            <a href="#">À propos</a>
+            <a href="#">Carrières</a>
+            <a href="#">Blog</a>
+          </div>
+          <div class="footer-col">
+            <span class="col-title">Légal</span>
+            <a href="#">Confidentialité</a>
+            <a href="#">Mentions Légales</a>
+            <a href="#">CGU</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; <span id="current-year">2026</span> Izistok. Fait avec passion pour les créateurs de valeur.
+        </div>
+        <div class="system-status">
+          <span class="status-dot pulsing-green"></span>
+          <span class="status-text">Tous les services opérationnels</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
