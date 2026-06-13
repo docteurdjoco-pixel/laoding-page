@@ -30,6 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------
+   * 1b. LIGHT/DARK THEME TOGGLE LOGIC
+   * ------------------------------------------------------------- */
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    // Check localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    
+    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+      document.documentElement.classList.add('light-mode');
+    } else {
+      document.documentElement.classList.remove('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  }
+
+  /* -------------------------------------------------------------
    * 2. INTERACTIVE SIMULATOR LOGIC
    * ------------------------------------------------------------- */
   const priceSlider = document.getElementById('sim-price');
@@ -301,88 +322,111 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 0,
       duration: 0.7,
       ease: 'power3.out'
-    }, '-=0.6')
-    .from('.hero-ctas .btn', {
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.15,
-      ease: 'power3.out'
-    }, '-=0.5')
-    .from('.hero-stats', {
-      opacity: 0,
-      duration: 0.6
-    }, '-=0.3')
-    .from('.mockup-window', {
-      rotateX: 18,
-      y: 60,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out'
-    }, '-=0.4');
+    }, '-=0.6');
+    // Only animate CTA buttons and benefits on desktop/tablet to ensure they are always visible on mobile
+    if (window.innerWidth > 768) {
+      heroTl.from('.hero-ctas .btn', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out'
+      }, '-=0.5')
+      .from('.benefit-item', {
+        y: 15,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power2.out'
+      }, '-=0.4');
+    }
 
-    // Scroll Animations: Features Stagger Fade Up
-    gsap.from('.feature-card', {
-      scrollTrigger: {
-        trigger: '.features-grid',
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      },
+    heroTl.from('.mockup-window', {
+      rotateX: 12,
+      rotateY: -12,
       y: 50,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'power3.out'
-    });
-
-    // Scroll Animations: Simulator fade-in
-    gsap.from('.simulator-panel', {
-      scrollTrigger: {
-        trigger: '.simulator-wrapper',
-        start: 'top 75%'
-      },
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-
-    gsap.from('.simulator-dashboard', {
-      scrollTrigger: {
-        trigger: '.simulator-wrapper',
-        start: 'top 75%'
-      },
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-
-
-
-    // Scroll Animations: FAQ questions
-    gsap.from('.faq-item', {
-      scrollTrigger: {
-        trigger: '.faq-accordion-container',
-        start: 'top 80%'
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: 'power2.out'
-    });
-
-    // Scroll Animations: Contact Section
-    gsap.from('.contact-info', {
-      scrollTrigger: {
-        trigger: '.contact-wrapper',
-        start: 'top 75%'
-      },
+      duration: 1.1,
+      ease: 'power2.out',
+      clearProps: 'transform'
+    }, '-=0.6')
+    .from('.mockup-chat-widget', {
+      scale: 0.8,
       y: 40,
       opacity: 0,
       duration: 0.8,
-      ease: 'power3.out'
-    });
+      ease: 'back.out(1.4)',
+      clearProps: 'transform'
+    }, '-=0.4');
+
+    // Only run scroll animations on desktop/tablet to ensure 100% reliability and performance on mobile
+    if (window.innerWidth > 768) {
+      // Scroll Animations: Features Stagger Fade Up
+      gsap.from('.feature-card', {
+        scrollTrigger: {
+          trigger: '.features-section',
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+
+      // Scroll Animations: Simulator fade-in
+      gsap.from('.simulator-panel', {
+        scrollTrigger: {
+          trigger: '.simulator-section',
+          start: 'top 90%'
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.simulator-dashboard', {
+        scrollTrigger: {
+          trigger: '.simulator-section',
+          start: 'top 90%'
+        },
+        x: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+
+      // Scroll Animations: FAQ questions
+      gsap.from('.faq-item', {
+        scrollTrigger: {
+          trigger: '.faqs-section',
+          start: 'top 90%'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out'
+      });
+
+      // Scroll Animations: Contact Section
+      gsap.from('.contact-info', {
+        scrollTrigger: {
+          trigger: '.contact-section',
+          start: 'top 90%'
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+
+      // Recalculate ScrollTrigger positions on startup
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 200);
+    }
   }
 });

@@ -49,151 +49,204 @@
       </ul>
       
       <div class="nav-actions">
+        <a href="#simulator" class="btn btn-nav-secondary">Simulateur</a>
         <a href="https://izistok.glide.page/" target="_blank" class="btn btn-nav-cta">Essayer gratuitement</a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
       </div>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
   <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot pulse"></span>
-        <span class="badge-text">Version 2.0 en ligne</span>
-      </div>
-      
-      <h1 class="hero-title">
-        Pilotez vos <span class="gradient-text">ventes</span>, contrôlez vos <span class="gradient-text">stocks</span> et automatisez votre <span class="gradient-text">compta</span>.
-      </h1>
-      
-      <p class="hero-subtitle">
-        La plateforme tout-en-un ultra-fluide pour les commerçants et PME modernes. Visualisez vos performances en temps réel sans effort.
-      </p>
-      
-      <div class="hero-ctas">
-        <a href="https://izistok.glide.page/" target="_blank" class="btn btn-primary magnetic-btn">Démarrer maintenant</a>
-        <a href="#simulator" class="btn btn-secondary magnetic-btn">Tester le simulateur</a>
-      </div>
-      
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-num">[15k+]</span>
-          <span class="stat-label">Transactions/j</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">[99.98%]</span>
-          <span class="stat-label">Uptime garanti</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">[-40%]</span>
-          <span class="stat-label">Temps de gestion</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Mockup Window -->
-    <div class="hero-mockup-wrapper">
-      <div class="mockup-window">
-        <div class="mockup-header">
-          <div class="mockup-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="mockup-title">dashboard.izistok.io</div>
-          <div class="mockup-badge">Live Preview</div>
-        </div>
-        
-        <div class="mockup-body">
-          <!-- Sidebar -->
-          <div class="mockup-sidebar">
-            <div class="sidebar-logo">izistok</div>
-            <div class="sidebar-menu">
-              <div class="menu-item active"><i data-lucide="layout-dashboard"></i> Tableau de bord</div>
-              <div class="menu-item"><i data-lucide="trending-up"></i> Ventes</div>
-              <div class="menu-item"><i data-lucide="package"></i> Stock</div>
-              <div class="menu-item"><i data-lucide="file-text"></i> Factures</div>
-              <div class="menu-item"><i data-lucide="pie-chart"></i> Comptabilité</div>
-              <div class="menu-item"><i data-lucide="settings"></i> Réglages</div>
-            </div>
-          </div>
-          
-          <!-- Content Area -->
-          <div class="mockup-content">
-            <div class="content-header">
-              <h3>Vue d'ensemble</h3>
-              <div class="timeframe-badge">7 derniers jours</div>
+    <div class="container hero-grid">
+      <!-- Left side: Mockups (Dashboard + Chat overlay) -->
+      <div class="hero-mockup-side">
+        <div class="hero-mockup-wrapper">
+          <!-- Dashboard Window -->
+          <div class="mockup-window">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="mockup-title">dashboard.izistok.io</div>
+              <div class="mockup-badge">Live Preview</div>
             </div>
             
-            <div class="mockup-cards-grid">
-              <div class="mini-card card-glow-cyan">
-                <div class="mini-card-header">
-                  <span>Chiffre d'Affaires</span>
-                  <i data-lucide="dollar-sign" class="text-cyan"></i>
-                </div>
-                <div class="mini-card-val">24 580 FCFA</div>
-                <div class="mini-card-trend trend-up">
-                  <i data-lucide="arrow-up-right"></i> +12.3%
+            <div class="mockup-body">
+              <!-- Sidebar -->
+              <div class="mockup-sidebar">
+                <div class="sidebar-logo">izistok</div>
+                <div class="sidebar-menu">
+                  <div class="menu-item active"><i data-lucide="layout-dashboard"></i> Tableau de bord</div>
+                  <div class="menu-item"><i data-lucide="trending-up"></i> Ventes</div>
+                  <div class="menu-item"><i data-lucide="package"></i> Stock</div>
+                  <div class="menu-item"><i data-lucide="file-text"></i> Factures</div>
+                  <div class="menu-item"><i data-lucide="pie-chart"></i> Comptabilité</div>
+                  <div class="menu-item"><i data-lucide="settings"></i> Réglages</div>
                 </div>
               </div>
               
-              <div class="mini-card card-glow-purple">
-                <div class="mini-card-header">
-                  <span>Commandes</span>
-                  <i data-lucide="shopping-cart" class="text-purple"></i>
+              <!-- Content Area -->
+              <div class="mockup-content">
+                <div class="content-header">
+                  <h3>Vue d'ensemble</h3>
+                  <div class="timeframe-badge">7 derniers jours</div>
                 </div>
-                <div class="mini-card-val">342</div>
-                <div class="mini-card-trend trend-up">
-                  <i data-lucide="arrow-up-right"></i> +8.5%
-                </div>
-              </div>
+                
+                <div class="mockup-cards-grid">
+                  <div class="mini-card card-glow-cyan">
+                    <div class="mini-card-header">
+                      <span>Chiffre d'Affaires</span>
+                      <i data-lucide="dollar-sign" class="text-cyan"></i>
+                    </div>
+                    <div class="mini-card-val">24 580 FCFA</div>
+                    <div class="mini-card-trend trend-up">
+                      <i data-lucide="arrow-up-right"></i> +12.3%
+                    </div>
+                  </div>
+                  
+                  <div class="mini-card card-glow-purple">
+                    <div class="mini-card-header">
+                      <span>Commandes</span>
+                      <i data-lucide="shopping-cart" class="text-purple"></i>
+                    </div>
+                    <div class="mini-card-val">342</div>
+                    <div class="mini-card-trend trend-up">
+                      <i data-lucide="arrow-up-right"></i> +8.5%
+                    </div>
+                  </div>
 
-              <div class="mini-card card-glow-blue">
-                <div class="mini-card-header">
-                  <span>Alerte de Stock</span>
-                  <i data-lucide="alert-triangle" class="text-amber"></i>
+                  <div class="mini-card card-glow-blue">
+                    <div class="mini-card-header">
+                      <span>Alerte de Stock</span>
+                      <i data-lucide="alert-triangle" class="text-amber"></i>
+                    </div>
+                    <div class="mini-card-val">4 articles</div>
+                    <div class="mini-card-trend trend-warning">
+                      <span class="warning-dot"></span> Action requise
+                    </div>
+                  </div>
                 </div>
-                <div class="mini-card-val">4 articles</div>
-                <div class="mini-card-trend trend-warning">
-                  <span class="warning-dot"></span> Action requise
+
+                <!-- Chart Simulation Container -->
+                <div class="mockup-chart-container">
+                  <div class="chart-header">
+                    <span>Courbe des Ventes Quotidiennes</span>
+                    <span class="chart-value-indicator">Moyenne: 3 510 FCFA/j</span>
+                  </div>
+                  <div class="chart-svg-wrapper">
+                    <svg viewBox="0 0 500 150" class="mockup-svg-chart">
+                      <!-- Grid Lines -->
+                      <line x1="0" y1="30" x2="500" y2="30" stroke="#1e293b" stroke-dasharray="4,4" />
+                      <line x1="0" y1="75" x2="500" y2="75" stroke="#1e293b" stroke-dasharray="4,4" />
+                      <line x1="0" y1="120" x2="500" y2="120" stroke="#1e293b" stroke-dasharray="4,4" />
+                      <!-- Gradient fill under path -->
+                      <defs>
+                        <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#789436" stop-opacity="0.25"/>
+                          <stop offset="100%" stop-color="#789436" stop-opacity="0.0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60 L 500 150 L 0 150 Z" fill="url(#chartGlow)" />
+                      <!-- Line path -->
+                      <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60" fill="none" stroke="url(#cyan-blue-grad)" stroke-width="3" class="chart-line-animation" />
+                      <!-- Data points -->
+                      <circle cx="150" cy="90" r="4" fill="#789436" />
+                      <circle cx="300" cy="40" r="4" fill="#789436" />
+                      <circle cx="450" cy="70" r="4" fill="#789436" />
+                      <!-- Gradients definitions -->
+                      <linearGradient id="cyan-blue-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#789436" />
+                        <stop offset="100%" stop-color="#789436" />
+                      </linearGradient>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Chart Simulation Container -->
-            <div class="mockup-chart-container">
-              <div class="chart-header">
-                <span>Courbe des Ventes Quotidiennes</span>
-                <span class="chart-value-indicator">Moyenne: 3 510 FCFA/j</span>
+          <!-- Chat Assistant Mockup Overlay (Yellow.ai style) -->
+          <div class="mockup-chat-widget">
+            <div class="chat-header">
+              <span class="chat-header-text">Salut, c'est Izibot ! 👋</span>
+            </div>
+            
+            <div class="chat-body">
+              <!-- Bot message row -->
+              <div class="chat-message-row bot-row">
+                <div class="chat-avatar-mini">i</div>
+                <div class="chat-message-content">
+                  <span class="chat-sender-name">Izibot</span>
+                  <p class="chat-text">L'assistant d'Izistok conçu pour simplifier votre gestion. Comment puis-je vous aider ?</p>
+                  
+                  <!-- Quick actions matching search result style inside chat message -->
+                  <div class="chat-quick-options">
+                    <a href="https://izistok.glide.page/" target="_blank" class="chat-option-pill">Démarrer maintenant</a>
+                    <a href="#simulator" class="chat-option-pill">Tester le simulateur</a>
+                    <a href="#contact" class="chat-option-pill">Nous contacter</a>
+                  </div>
+                </div>
               </div>
-              <div class="chart-svg-wrapper">
-                <svg viewBox="0 0 500 150" class="mockup-svg-chart">
-                  <!-- Grid Lines -->
-                  <line x1="0" y1="30" x2="500" y2="30" stroke="#1e293b" stroke-dasharray="4,4" />
-                  <line x1="0" y1="75" x2="500" y2="75" stroke="#1e293b" stroke-dasharray="4,4" />
-                  <line x1="0" y1="120" x2="500" y2="120" stroke="#1e293b" stroke-dasharray="4,4" />
-                  <!-- Gradient fill under path -->
-                  <defs>
-                    <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#789436" stop-opacity="0.25"/>
-                      <stop offset="100%" stop-color="#789436" stop-opacity="0.0"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60 L 500 150 L 0 150 Z" fill="url(#chartGlow)" />
-                  <!-- Line path -->
-                  <path d="M 0 110 Q 75 70, 150 90 T 300 40 T 450 70 L 500 60" fill="none" stroke="url(#cyan-blue-grad)" stroke-width="3" class="chart-line-animation" />
-                  <!-- Data points -->
-                  <circle cx="150" cy="90" r="4" fill="#789436" />
-                  <circle cx="300" cy="40" r="4" fill="#789436" />
-                  <circle cx="450" cy="70" r="4" fill="#789436" />
-                  <!-- Gradients definitions -->
-                  <linearGradient id="cyan-blue-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#789436" />
-                    <stop offset="100%" stop-color="#789436" />
-                  </linearGradient>
-                </svg>
+              
+              <!-- Simulated User Selection Row -->
+              <div class="chat-message-row user-row">
+                <a href="https://izistok.glide.page/" target="_blank" class="chat-user-response-pill">Essayer gratuitement</a>
+                <div class="chat-avatar-mini user-avatar">U</div>
+              </div>
+              
+              <!-- Mock Chat Input at bottom -->
+              <div class="chat-input-area">
+                <span class="chat-input-placeholder">Écrivez votre message ici...</span>
+                <i data-lucide="paperclip" class="chat-attachment-icon"></i>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Text copy, Badge, CTAs & Benefits grid -->
+      <div class="hero-text-side">
+        <div class="hero-badge">
+          <span class="badge-dot pulse"></span>
+          <span class="badge-text">Version 2.0 en ligne</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Pilotez vos <span class="gradient-text">ventes</span>, contrôlez vos <span class="gradient-text">stocks</span> et automatisez votre <span class="gradient-text">compta</span>.
+        </h1>
+        
+        <p class="hero-subtitle">
+          La plateforme tout-en-un ultra-fluide pour les commerçants et PME modernes. Visualisez vos performances en temps réel sans effort.
+        </p>
+        
+        <div class="hero-ctas">
+          <a href="https://izistok.glide.page/" target="_blank" class="btn btn-primary magnetic-btn">Démarrer maintenant</a>
+          <a href="#simulator" class="btn btn-secondary magnetic-btn">Tester le simulateur</a>
+        </div>
+        
+        <!-- Benefits grid in capsule shape inspired by bottom-right of reference image -->
+        <div class="hero-benefits-grid">
+          <div class="benefit-item">
+            <span class="benefit-check"><i data-lucide="check"></i></span>
+            <span class="benefit-text">15k+ Transactions/j</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-check"><i data-lucide="check"></i></span>
+            <span class="benefit-text">99.98% Uptime garanti</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-check"><i data-lucide="check"></i></span>
+            <span class="benefit-text">-40% Temps de gestion</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-check"><i data-lucide="check"></i></span>
+            <span class="benefit-text">Synchro multi-boutique</span>
           </div>
         </div>
       </div>
